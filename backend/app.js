@@ -11,7 +11,7 @@ dotenv.config()
 const authRoutes = require("./routes/authRoutes");
 const taskRoutes = require("./routes/taskRoutes");
 const userRoutes = require("./routes/userRoutes");
-
+const adminRoutes  = require("./routes/adminRoutes")
 //routing logic here -> 
 app.use(express.json());
 
@@ -28,6 +28,7 @@ mongoose.connect(mongoUrl);
 app.use("/api/auth", authRoutes);
 app.use("/api/tasks", taskRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/admin", adminRoutes);
 
 //if defined then on that port else on 5000 port 
 const port = process.env.PORT || 5000;

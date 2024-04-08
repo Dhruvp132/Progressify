@@ -7,13 +7,17 @@ const taskSchema = new mongoose.Schema({
     required: true
   },
   description: {
-    type: String,
+    type: String, 
     required: true,
+  },
+  completed: {
+    type : Number,
+    default: 0,
+    required : true,
   },
 }, {
   timestamps: true
 });
-
 
 const Task = mongoose.model("Task", taskSchema);
 module.exports = Task;

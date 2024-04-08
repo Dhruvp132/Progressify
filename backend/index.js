@@ -5,8 +5,7 @@ const { JWT_SECRET } = process.env;
 
 exports.verifyAccessToken = async (req, res, next) => {
   const token = req.header("Authorization");
-  if (!token)
-    return res.status(400).json({  msg: "Token not found" });
+  if (!token) return res.status(400).json({  msg: "Token not found" });
   let user;
   try {
     user = jwt.verify(token, JWT_SECRET);
@@ -20,6 +19,8 @@ exports.verifyAccessToken = async (req, res, next) => {
       return res.status(401).json({  msg: "User not found" });
     }
 
+    //LOGIC : Using req.user to store the data of the user 
+    console.log("this is" + "user" + user);
     req.user = user;
     next();
   } catch (err) {

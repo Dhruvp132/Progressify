@@ -1,3 +1,4 @@
+const e = require("express");
 const Task = require("../models/Task");
 const { validateObjectId } = require("../utils/validation");
 
@@ -5,7 +6,18 @@ const { validateObjectId } = require("../utils/validation");
 const getTasks = async (req, res) => {
   try {
     const tasks = await Task.find({ user: req.user.id });
-    res.status(200).json({ tasks, msg: "Tasks found successfully.." });
+    const total = tasks.length;
+    console.log(total);
+    let completedPer = 0;
+    for(let i=0; i<total; i++) {
+      console.log(tasks[i].completed);
+      completedPer += tasks[i].completed;
+    }
+    let percentage = 0;
+    if(completedPer === 0) percentage = 0;
+    else percentage = parseFloat(completedPer/(total * 100)) * 100;
+    console.log("percentage of task completed is : " + percentage);
+    res.status(200).json({ tasks, msg: "Tasks found successfully..", percentage  });
   }
   catch (err) {
     console.error(err);
@@ -33,11 +45,14 @@ const getTask = async (req, res) => {
 
 const postTask = async (req, res) => {
   try {
-    const { description } = req.body;
+    const { description, completed } = req.body;
     if (!description) {
       return res.status(400).json({ msg: "Description of task not found" });
     }
-    const task = await Task.create({ user: req.user.id, description });
+    if (!completed) {
+      return res.status(400).json({ msg: "completed part of the task not found" });
+    }
+    const task = await Task.create({ user: req.user.id, description, completed});
     res.status(200).json({ task, msg: "Task created successfully.." });
   }
   catch (err) {
@@ -46,13 +61,18 @@ const postTask = async (req, res) => {
   }
 }
 
+
+//. For updating the tasks 
 const putTask = async (req, res) => {
   try {
-    const { description } = req.body;
+    const { description, completed } = req.body;
+    // console.log(typeof(completed) + " type with value :  " +  completed);
     if (!description) {
       return res.status(400).json({ msg: "Description of task not found" });
     }
-
+    if (!completed) {
+      return res.status(400).json({ msg: "completed part of the task not found" });
+    }
     if (!validateObjectId(req.params.taskId)) {
       return res.status(400).json({ msg: "Task id not valid" });
     }
@@ -66,9 +86,15 @@ const putTask = async (req, res) => {
       return res.status(403).json({ msg: "You can't update task of another user" });
     }
 
-    task = await Task.findByIdAndUpdate(req.params.taskId, { description }, { new: true });
+    //===========================================================
+    // IMPORTANT use {new : true } to get modifieded data returned 
+    // By default, findByIdAndUpdate() returns the original document before any modifications 
+    // were applied. However, if you specify { new: true },
+    //  it will return the modified document after the update operation has been performed.
+
+    task = await Task.findByIdAndUpdate(req.params.taskId,  { completed }, { description : "hello jii" }, { new: true });
     res.status(200).json({ task, msg: "Task updated successfully.." });
-  }
+  } 
   catch (err) {
     console.error(err);
     return res.status(500).json({ msg: "Internal Server Error" });
