@@ -1,0 +1,12 @@
+.profileCard {
+    margin: 10px;
+    padding: 40px;
+    background: black;
+    color: white;
+    border-radius: 20px;   
+}
+
+.profileCard > h2 {
+    margin-bottom: 15px;
+    
+}

@@ -2,6 +2,16 @@ const e = require("express");
 const Task = require("../models/Task");
 const { validateObjectId } = require("../utils/validation");
 
+//getPercentage function => 
+const getPercetage = (tasks) => {
+  let total = tasks.length; 
+  let completedPer = 0;
+  tasks.map(function(task) {completedPer += task.completed})
+  let percentage = 0;
+  if(completedPer === 0) percentage = 0;
+  else percentage = parseFloat(completedPer/(total * 100)) * 100;
+  return percentage;
+}
 
 const getTasks = async (req, res) => {
   try {
@@ -10,14 +20,13 @@ const getTasks = async (req, res) => {
     console.log(total);
     let completedPer = 0;
     for(let i=0; i<total; i++) {
-      console.log(tasks[i].completed);
       completedPer += tasks[i].completed;
     }
     let percentage = 0;
     if(completedPer === 0) percentage = 0;
     else percentage = parseFloat(completedPer/(total * 100)) * 100;
     console.log("percentage of task completed is : " + percentage);
-    res.status(200).json({ tasks, msg: "Tasks found successfully..", percentage  });
+    res.status(200).json({ tasks, msg: "Tasks found successfully..", percentage });
   }
   catch (err) {
     console.error(err);
@@ -31,7 +40,7 @@ const getTask = async (req, res) => {
       return res.status(400).json({ msg: "Task id not valid" });
     }
 
-    const task = await Task.findOne({ user: req.user.id, _id: req.params.taskId });
+    const task = await Task.findOne({ user : req.user.id, _id : req.params.taskId });
     if (!task) {
       return res.status(400).json({ msg: "No task found.." });
     }
@@ -52,7 +61,7 @@ const postTask = async (req, res) => {
     if (!completed) {
       return res.status(400).json({ msg: "completed part of the task not found" });
     }
-    const task = await Task.create({ user: req.user.id, description, completed});
+    const task = await Task.create({ user: req.user.id, description, completed });
     res.status(200).json({ task, msg: "Task created successfully.." });
   }
   catch (err) {
@@ -61,8 +70,7 @@ const postTask = async (req, res) => {
   }
 }
 
-
-//. For updating the tasks 
+//For updating the tasks 
 const putTask = async (req, res) => {
   try {
     const { description, completed } = req.body;
@@ -92,7 +100,7 @@ const putTask = async (req, res) => {
     // were applied. However, if you specify { new: true },
     //  it will return the modified document after the update operation has been performed.
 
-    task = await Task.findByIdAndUpdate(req.params.taskId,  { completed }, { description : "hello jii" }, { new: true });
+    task = await Task.findByIdAndUpdate(req.params.taskId,  { completed }, { description }, { new: true });
     res.status(200).json({ task, msg: "Task updated successfully.." });
   } 
   catch (err) {
@@ -126,6 +134,4 @@ const deleteTask = async (req, res) => {
   }
 }
 
-module.exports = {
-    getTasks, getTask, postTask, deleteTask, putTask 
-}
+module.exports = { getTasks, getTask, postTask, deleteTask, putTask  }

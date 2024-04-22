@@ -1,5 +1,17 @@
 {
   "dependencies": {
-    "dotenv": "^16.4.5"
-  }
+    "concurrently": "^8.2.2",
+    "dotenv": "^16.4.5",
+    "react-router": "^6.22.3",
+    "react-router-dom": "^6.22.3"
+  },
+  "name": "tasktracker",
+  "version": "1.0.0",
+  "description": "Task Tracker",
+  "main": "index.js",
+  "scripts": {
+    "both": "concurrently \"cd frontend && npm run dev\" \"cd backend && nodemon app.js\""
+  },
+  "author": "Dhruv",
+  "license": "ISC"
 }
