@@ -10,3 +10,8 @@
     margin-bottom: 15px;
     
 }
+
+.profileCard > div > p {
+    font-size: large;
+    font-style: italic;
+}

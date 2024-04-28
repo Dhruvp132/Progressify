@@ -259,3 +259,7 @@
     text-decoration: none;
   }
   
+  form > input {
+    margin : 10px;
+    margin-bottom : 15px;
+  }

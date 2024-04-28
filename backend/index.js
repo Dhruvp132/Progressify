@@ -9,6 +9,7 @@ exports.verifyAccessToken = async (req, res, next) => {
   let user;
   try {
     user = jwt.verify(token, JWT_SECRET);
+    console.log(user);  //>> this will return User id or USer.id
   } catch (err) {
     return res.status(401).json({  msg: "Invalid token" });
   }

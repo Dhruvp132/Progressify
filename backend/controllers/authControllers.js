@@ -44,7 +44,8 @@ const login = async (req, res) => {
     if (!email || !password) {
       return res.status(400).json({ status: false, msg: "Please enter all details!!" });
     }
-
+ 
+    
     const user = await User.findOne({ email });
     if (!user) return res.status(400).json({ status: false, msg: "This email is not registered!!" });
 

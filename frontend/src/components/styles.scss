@@ -1,0 +1,71 @@
+//styles.scss
+
+    .wrapper {
+        height : 20px;
+        width: auto;
+    }
+
+  .barCompleted {
+    height: 20px;
+    width: 80%;
+    background: rgb(106, 27, 154);
+    transition: width 1s ease-in-out 0s;
+    border-radius: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.row>* {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x)* .5);
+  padding-left: calc(var(--bs-gutter-x)* .5);
+  margin-top: var(--bs-gutter-y);
+}
+
+.col-md-3 {
+   width: 100%;
+}
+
+.label {
+    padding: 5px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 15px;
+    display: initial;
+}
+  .ContainerClass {
+    height: 20px;
+    background: rgb(224, 224, 222);
+    border-radius: 50px;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .input {
+    margin : 10px;
+  }
+
+  @media (min-width: 768px) {
+        .col-md-3 {
+            flex: 0 0 auto;
+            width: 100%;
+        }
+    }
+
+    @media (min-width: 768px) {
+          .cardClass {
+              flex: 0 0 auto;
+              width: 100%;
+          }
+      }
+
+    .form-outer {
+      background-color: white;
+    }
+
+    .formInside {
+      background-color: white;
+    }

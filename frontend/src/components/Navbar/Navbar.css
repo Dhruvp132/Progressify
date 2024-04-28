@@ -1,0 +1,92 @@
+.jTXrfm{   
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+.bcSEOd {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 10%;
+    cursor: pointer;
+}
+
+.bXZlCV {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    animation: gMgAZf 0.5s forwards;
+}
+
+.gXRWWB {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.sign-in-container {
+    left: 0;
+    width: 50%;
+    z-index: 1;
+}
+
+.a.sc-hLQSwg.gXRWWB.active {
+    height: 10%;
+}
+
+.a.sc-hLQSwg.gXRWWB.active {
+    height: 10%;
+}
+
+.sc-beySPh.bXZlCV > a {
+    height : 10%;
+}
+
+a {
+    height : 10%;
+}
+
+.sc-beySPh {
+    height : 10%;
+} 
+.eNbCqY {
+    height : 10%;
+}
+
+
+
+/* Admin Navbar css */
+
+
+.sc-iuOOrT.dmKFmG  {
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+    height : 10%;
+}
+.sc-iuOOrT.dmKFmG > a {
+    height : 10%;
+}
+
+.sc-iuOOrT.dmKFmG > button  {
+    margin : 5%;
+}

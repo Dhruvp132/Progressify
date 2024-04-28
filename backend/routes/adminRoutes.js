@@ -1,10 +1,18 @@
 const express = require("express");
 const router = express.Router();
-const { getAdmin, getTasks, assignTaskToUser } = require("../controllers/adminControllers");
+const { signup, login, getUser, getUsers, getTasks, updateTask, assignTaskToUser } = require("../controllers/adminControllers");
+const {verifyAdmin} = require("../adminMiddleware")
 
-// Routes starting with /{api}/auth
-//Hard coded for instance 
-router.post("/", getAdmin); //[iser1.id, iser ]
-router.get("/getTasksOf/:userId", getTasks)
-router.post("/:userId/", assignTaskToUser)
+
+// Routes starting with {host}/api/auth -> 
+router.post("/signup", signup)
+router.post("/login", login)
+router.get("/", verifyAdmin, getUsers); //[user1.id, iser ]
+router.get("/getUser", verifyAdmin, getUser); //[user1.id, iser ]
+router.post("/getTasks/", verifyAdmin, getTasks)
+
+
+router.post("/assignTask",verifyAdmin, assignTaskToUser)
+
+router.put("/changeTaskOf/:taskId", verifyAdmin, updateTask)
 module.exports = router;

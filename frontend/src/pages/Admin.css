@@ -1,0 +1,65 @@
+/* .Users {
+    width: 80%;
+    margin: 5% auto 0 auto;
+    box-shadow: 0 4px 12px rgba(black, 0.1);
+    background-color: $subtle-white;
+    max-width: 800px;
+} */ */
+
+.css-13cymwt-control {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: default;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    min-height: 38px;
+    outline: 0 !important;
+    position: relative;
+    -webkit-transition: all 100ms;
+    transition: all 100ms;
+    background-color: hsl(0, 0%, 100%);
+    border-color: hsl(0, 0%, 80%);
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
+    width : 100%;
+}
+
+
+.css-b62m3t-container {
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    margin-bottom : 15px;
+}
+
+ /* .css-13cymwt-control {
+    width :100%;
+}
+.css-w9q2zk-Input2  {
+    width : 100%;
+    padding : 300px;
+    grid-template-columns: 0 min max-content;
+} */
+
+@media (width <= 844px) {
+    .css-13cymwt-control {
+        width :100%;
+    }
+    .css-w9q2zk-Input2  {
+        padding-right: 70px;
+        width : 50%;
+    }
+}

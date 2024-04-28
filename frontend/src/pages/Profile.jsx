@@ -73,7 +73,7 @@ function Profile() {
         <h2 style={{margin:" 25px"}}> Work Done : {per} % </h2>
         <div style={{margin: "15px"}}>
             <ProgressBar  completed={per}/>
-            <button style={{marginTop: "15px"}} onClick={()=> {navigate("/allTasks")}} >Click to see tasks</button>
+            <button style={{marginTop: "15px"}} onClick={()=> {navigate("/allTasks")}} >Click to see all your tasks</button>
         </div>
     </>
   );

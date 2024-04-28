@@ -17,7 +17,6 @@ const getTasks = async (req, res) => {
   try {
     const tasks = await Task.find({ user: req.user.id });
     const total = tasks.length;
-    console.log(total);
     let completedPer = 0;
     for(let i=0; i<total; i++) {
       completedPer += tasks[i].completed;
@@ -25,7 +24,6 @@ const getTasks = async (req, res) => {
     let percentage = 0;
     if(completedPer === 0) percentage = 0;
     else percentage = parseFloat(completedPer/(total * 100)) * 100;
-    console.log("percentage of task completed is : " + percentage);
     res.status(200).json({ tasks, msg: "Tasks found successfully..", percentage });
   }
   catch (err) {
@@ -52,16 +50,20 @@ const getTask = async (req, res) => {
   }
 }
 
+//Incase you are figuring out how i am sending uesrId 
+//Just check the middleware in index.js
+
+//LOGIC : Using req.user to store the data of the user 
 const postTask = async (req, res) => {
   try {
-    const { description, completed } = req.body;
+    const { title, description, completed } = req.body;
     if (!description) {
       return res.status(400).json({ msg: "Description of task not found" });
     }
     if (!completed) {
       return res.status(400).json({ msg: "completed part of the task not found" });
     }
-    const task = await Task.create({ user: req.user.id, description, completed });
+    const task = await Task.create({ user: req.user.id, title, description, completed });
     res.status(200).json({ task, msg: "Task created successfully.." });
   }
   catch (err) {
@@ -73,7 +75,7 @@ const postTask = async (req, res) => {
 //For updating the tasks 
 const putTask = async (req, res) => {
   try {
-    const { description, completed } = req.body;
+    const { title, description, completed } = req.body;
     // console.log(typeof(completed) + " type with value :  " +  completed);
     if (!description) {
       return res.status(400).json({ msg: "Description of task not found" });
@@ -100,7 +102,7 @@ const putTask = async (req, res) => {
     // were applied. However, if you specify { new: true },
     //  it will return the modified document after the update operation has been performed.
 
-    task = await Task.findByIdAndUpdate(req.params.taskId,  { completed }, { description }, { new: true });
+    task = await Task.findByIdAndUpdate(req.params.taskId, { title, description, completed }, { new: true });
     res.status(200).json({ task, msg: "Task updated successfully.." });
   } 
   catch (err) {

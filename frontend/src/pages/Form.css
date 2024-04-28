@@ -1,5 +1,4 @@
 .form-container1 {
-    background-color: #f6f5f7;
     display: flex;
     align-items: start;
     justify-content: center;
@@ -81,3 +80,14 @@
     margin-left : 100px;
     margin-right : 100px;
   }
+
+  @media (min-width: 768px) {
+        .col-md-3 {
+            flex: 0 0 auto;
+            width: 100%;
+        }
+    }
+
+    form {
+      background-color: white;
+    }
