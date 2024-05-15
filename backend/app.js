@@ -20,9 +20,7 @@ app.use(cors());
 //connecting to mongoDB 
 const mongoUrl = process.env.MONGODB_URL;
 // console.log(typeof(mongoUrl))
-// mongoose.connect('mongodb+srv://admin:v6YFgS6fVZDjkR46@cluster0.hwcxot6.mongodb.net/tasktracker');
 mongoose.connect(mongoUrl);
-
 
 //Routes 
 app.use("/api/auth", authRoutes);

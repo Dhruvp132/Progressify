@@ -25,15 +25,16 @@ const Navbar = () => {
 
   const handleSignin = (e) => {};
 
-  const toggleDrawer = () => {
-    setIsOpen(!isOpen);
-  };
+  // const toggleDrawer = () => {
+  //   setIsOpen(!isOpen);
+  // };
 
   return (
     <>
       <Nav>
         <NavLink to="/"></NavLink>
-        <Bars onClick={toggleDrawer} />
+        {/* <Bars onClick={toggleDrawer} /> */}
+        <Bars  />
         <NavMenu>
           <NavLink to="/adminDashboard" activeStyle>
             Dashboard
@@ -65,7 +66,7 @@ const Navbar = () => {
           )}
         </NavBtn>
       </Nav>
-      <NavDrawer isOpen={isOpen}>
+      {/* <NavDrawer isOpen={isOpen}>
         <CloseBtn onClick={toggleDrawer}>&times;</CloseBtn>
         <NavLink to="/adminDashboard">Dashboard</NavLink>
         <NavLink to="/admin/getuser">Users</NavLink>
@@ -85,7 +86,7 @@ const Navbar = () => {
             logOut
           </button>
         )}
-      </NavDrawer>
+      </NavDrawer> */}
     </>
   );
 };

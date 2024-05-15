@@ -9,12 +9,33 @@ import {
   NavDrawer,
   CloseBtn,
 } from "./NavbarElements";
-import { useNavigate } from "react-router";
-import './Navbar.css'
+import './Navbar.css';
+import { FaBars } from "react-icons/fa"; // Import the Bars icon from react-icons/fa
+import styled from "styled-components"; // Import styled-components for styling
+
+// const Bars = styled(FaBars)`
+//   // Style the Bars icon using styled-components
+//   display: none;
+//   color: #fff;
+
+//   @media screen and (max-width: 768px) {
+//     color : black;
+//     display: block;
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     transform: translate(-100%, 75%);
+//     font-size: 1.8rem;
+//     cursor: pointer;
+//   }
+// `;
+
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const ButtonText = "LogOut";
-  const Navigate = useNavigate();
+  const [showNavbar, setShowNavbar] = useState(false);
+
+  const handleShowNavbar = () => {
+    setShowNavbar(!showNavbar);
+  }
 
   const handleLogout = (e) => {
     localStorage.clear();
@@ -24,16 +45,19 @@ const Navbar = () => {
   const handleLogin = (e) => {};
 
   const handleSignin = (e) => {};
-
-  const toggleDrawer = () => {
-    setIsOpen(!isOpen);
-  };
+  
+    // const toggleDrawer = () => {
+  //   setIsOpen(!isOpen);
+  // };
 
   return (
     <>
       <Nav>
         <NavLink to="/"></NavLink>
-        <Bars onClick={toggleDrawer} />
+        {/* <Bars onClick={toggleDrawer} /> */}
+        <div className="menu-icon" onClick={handleShowNavbar}>
+          <Bars /> {/* Display the Bars icon */}
+        </div>
         <NavMenu>
           <NavLink to="/tasks" activeStyle>
             Home
@@ -68,7 +92,7 @@ const Navbar = () => {
           )}
         </NavBtn>
       </Nav>
-      <NavDrawer isOpen={isOpen}>
+      {/* <NavDrawer isOpen={isOpen}>
         <CloseBtn onClick={toggleDrawer}>&times;</CloseBtn>
         <NavLink to="/" style={{ marginTop: "10px", marginBottom: "10px" }}>
           Home
@@ -99,7 +123,7 @@ const Navbar = () => {
             logOut
           </button>
         )}
-      </NavDrawer>
+      </NavDrawer> */}
     </>
   );
 };
