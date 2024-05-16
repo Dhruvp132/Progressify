@@ -3,12 +3,7 @@
   "builds": [
     {
       "src": "app.js",
-      "use": "@vercel/node",
-      "config": { "includeFiles": ["dist/**"] }
-    },
-    {
-      "src": "cron.js",
-      "use": "@vercel/node"
+      "use": "@now/node"
     }
   ],
   "routes": [
@@ -16,9 +11,5 @@
       "src": "/(.*)",
       "dest": "app.js"
     }
-  ],
-  "crons": [{
-    "path": "/cron",
-    "schedule": "0 0 * * *"
-  }]
+  ]
 }
