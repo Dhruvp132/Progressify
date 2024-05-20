@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+/* eslint-disable react/prop-types */
+import { useContext } from "react";
 import taskContext from "../context/tasks/taskContext";
 import ProgressBar from "@ramonak/react-progress-bar";
 import "./styles.scss";
-
 
 const TaskItem = (props) => {
   const context = useContext(taskContext);
@@ -10,10 +10,10 @@ const TaskItem = (props) => {
   const { task, updateTask } = props;
   return (
     <div className="cardClass">
-      <div class="card my-3">
-        <div style={{ height: "200px" }} class="card-body">
-          <h5 class="card-title">{task.title}</h5>
-          <p class="card-text">{task.description}</p>
+      <div className="card my-3">
+        <div style={{ height: "200px" }} className="card-body">
+          <h5 className="card-title">{task.title}</h5>
+          <p className="card-text">{task.description}</p>
           <ProgressBar
             completed={task.completed}
           />

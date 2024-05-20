@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import taskContext from "../context/tasks/taskContext";
 import "./Profile.css"
 import ProgressBar from "@ramonak/react-progress-bar";
