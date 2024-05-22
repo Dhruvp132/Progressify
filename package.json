@@ -7,7 +7,7 @@
   },
   "name": "tasktracker",
   "version": "1.0.0",
-  "description": "Task Tracker",
+  "description": "Progressify",
   "main": "index.js",
   "scripts": {
     "both": "concurrently \"cd frontend && npm run dev\" \"cd backend && nodemon app.js\""

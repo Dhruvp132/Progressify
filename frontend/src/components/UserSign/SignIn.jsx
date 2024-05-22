@@ -1,43 +1,48 @@
-import React, {useState} from "react";
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function SignInForm(props) {
-  const [credentials, setCredentials] = useState({email : "", password: ""})
-  const navigate = useNavigate(); 
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
 
-  //handleSubmit -> 
-    const handleSubmit = async (e)=> {
-        e.preventDefault();
-        const {email, password} = credentials;
-        const response = await fetch("http://localhost:5000/api/auth/login", {
-            method : "POST", 
-            headers: {
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({email : credentials.email, password : credentials.password})
-      });
-        const json = await response.json();
-        console.log(json);
-        //can also do this authentication usin json.status
-        if(json.status && json.token !== null || json.token !== undefined) {
-          localStorage.setItem('token', json.token);
-          navigate('/tasks');
-        }
-        else {
-          console.log("Error 400")
-        }
+  //handleSubmit ->
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { email, password } = credentials;
+    const response = await fetch(
+      "https://progressify-1.onrender.com/api/auth/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: credentials.email,
+          password: credentials.password,
+        }),
+      }
+    );
+    const json = await response.json();
+    console.log(json);
+    //can also do this authentication usin json.status
+    if ((json.status && json.token !== null) || json.token !== undefined) {
+      localStorage.setItem("token", json.token);
+      navigate("/tasks");
+    } else {
+      console.log("Error 400");
     }
-  
-    const handleChange= (e)=> {
-      //const value = e.target.value;
-      // setState({...credentials,[e.target.name]: value});
-      setCredentials({...credentials, [e.target.name] : e.target.value})
-    }
+  };
+
+  const handleChange = (e) => {
+    //const value = e.target.value;
+    // setState({...credentials,[e.target.name]: value});
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+  };
 
   return (
     <div className="form-container sign-in-container">
       <form onSubmit={handleSubmit}>
-        <h1 style={{'color' : 'black' ,'marginBottom': "20px"}}>Sign in</h1>
+        <h1 style={{ color: "black", marginBottom: "20px" }}>Sign in</h1>
         <input
           type="email"
           placeholder="Email"

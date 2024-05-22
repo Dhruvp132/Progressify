@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import TaskItem from '../components/TaskItem';
-import "./Profile.css"
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import TaskItem from "../components/TaskItem";
+import "./Profile.css";
 function GetUser() {
   const location = useLocation();
   const id = location.state ? location.state.id : null;
 
   const [user, setUser] = useState(null); // Define useState outside useEffect
-  const [tasks , setTasks] = useState([]);
+  const [tasks, setTasks] = useState([]);
   useEffect(() => {
-    const host = "http://localhost:5000";
+    const host = "https://progressify-1.onrender.com";
 
     async function fetchData() {
       try {
@@ -17,39 +17,38 @@ function GetUser() {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": localStorage.getItem('token'),
-            "userId": id
+            Authorization: localStorage.getItem("token"),
+            userId: id,
           },
         });
 
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error("Network response was not ok");
         }
 
         const json = await response.json();
         setUser(json.user);
-        setTasks(json.tasks)
+        setTasks(json.tasks);
       } catch (error) {
-        console.error('Error fetching user:', error);
+        console.error("Error fetching user:", error);
       }
     }
 
-    if (id) { // Fetch only if id is present
+    if (id) {
+      // Fetch only if id is present
       fetchData();
     }
   }, [id]); // Include id in the dependency array
 
+  //Q. Why do so in above
+  //  The id obtained from the useLocation hook could be considered a
+  // synchronous in nature because it depends on the location state,
+  //  which might not be immediately available when the component
+  // mounts.
 
-
-  //Q. Why do so in above 
-//  The id obtained from the useLocation hook could be considered a
-// synchronous in nature because it depends on the location state,
-//  which might not be immediately available when the component 
-// mounts.
-
-//Note why if (id) ? 
-//AnsDependency Array in useEffect: You've passed an empty dependency array ([]) to useEffect, which means it will only run once when the component mounts. If you want it to run when id changes, you should include id in the dependency array.
-// Brief => 
+  //Note why if (id) ?
+  //AnsDependency Array in useEffect: You've passed an empty dependency array ([]) to useEffect, which means it will only run once when the component mounts. If you want it to run when id changes, you should include id in the dependency array.
+  // Brief =>
 
   return (
     <>
@@ -64,13 +63,16 @@ function GetUser() {
         )}
       </div>
 
-    <h2 style={{marginLeft : "100px", margin : "20px"}}> Tasks of this User </h2>
-    <div className="rows">
+      <h2 style={{ marginLeft: "100px", margin: "20px" }}>
+        {" "}
+        Tasks of this User{" "}
+      </h2>
+      <div className="rows">
         {tasks.length === 0 && "No tasks to display"}
         {tasks.map((task) => {
           return <TaskItem key={task._id} task={task} />;
         })}
-      </div> 
+      </div>
     </>
   );
 }

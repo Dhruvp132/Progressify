@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 function AdminSignUp(props) {
   //Setting up the credentials / state
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
-    id : "",
+    id: "",
     password: "",
   });
   const navigate = useNavigate();
@@ -14,13 +14,16 @@ function AdminSignUp(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { name, email, id, password } = credentials;
-    const response = await fetch("http://localhost:5000/api/admin/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, email, id, password }),
-    });
+    const response = await fetch(
+      "https://progressify-1.onrender.com/api/admin/signup",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, id, password }),
+      }
+    );
     const json = await response.json();
     if (json.success) {
       localStorage.setItem("token", json.token);
@@ -58,13 +61,13 @@ function AdminSignUp(props) {
         <input
           type="text"
           name="id"
-          value={credentials.id }
+          value={credentials.id}
           onChange={handleChange}
           placeholder="Admin Id"
           required
         />
         <input
-          required 
+          required
           type="password"
           name="password"
           value={credentials.password}
