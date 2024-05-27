@@ -39,17 +39,17 @@ function AppContent() {
     <>
       {isAdmin? <AdminNav /> : <Navbar />}
       <Routes>
-        <Route exact path="/" element={<Landing />} />
-        <Route exact path="/signin" element={<LoginSignin />} />
-        <Route exact path="/tasks" element={<Tasks />} />
-        <Route exact path="/alltasks" element={<AllTasks />} />
-        <Route exact path="/user" element={<Profile />} />
-        <Route exact path="/about" element={<About />} />
-        <Route exact path="/admin/assignTask" element={<Admin />} />
-        <Route exact path="/adminsign" element={<AdminSignin />} />
-        <Route exact path="/admindashboard" element={<AdminDashboard />} />
-        <Route exact path="/admin/getuser" element={<GetUser />} />
-        <Route exact path="/admin/about" element={<About />} />
+        <Route exact path="/Progressify" element={<Landing />} />
+        <Route exact path="Progressify/signin" element={<LoginSignin />} />
+        <Route exact path="Progressify/tasks" element={<Tasks />} />
+        <Route exact path="Progressify/alltasks" element={<AllTasks />} />
+        <Route exact path="Progressify/user" element={<Profile />} />
+        <Route exact path="Progressify/about" element={<About />} />
+        <Route exact path="Progressify/admin/assignTask" element={<Admin />} />
+        <Route exact path="Progressify/adminsign" element={<AdminSignin />} />
+        <Route exact path="Progressify/admindashboard" element={<AdminDashboard />} />
+        <Route exact path="Progressify/admin/getuser" element={<GetUser />} />
+        <Route exact path="Progressify/admin/about" element={<About />} />
       </Routes>
     </>
   );
