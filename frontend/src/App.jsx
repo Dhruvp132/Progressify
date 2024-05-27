@@ -15,7 +15,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import GetUser from "./pages/GetUser";
 import Admin from "./pages/Admin";
 
-const adminRoutes = [/^\/admin\/?.*$/];
+const adminRoutes = [/^\/Progressify\/admin\/?.*$/];
 
 function App() {
   return (
