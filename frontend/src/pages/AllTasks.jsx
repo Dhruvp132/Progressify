@@ -15,7 +15,7 @@ function Tasks() {
     if (localStorage.getItem("token")) {
       getTasks();
     } else {
-      navigate("/");
+      navigate("/Progressify/");
     }
     getTasks();
     // eslint-disable-next-line
@@ -37,7 +37,7 @@ function Tasks() {
         {tasks.map((task) => {
           return <TaskItem key={task._id} task={task} />;
         })}
-      </div> 
+      </div>
     </>
   );
 }

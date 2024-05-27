@@ -9,7 +9,7 @@ import {
   NavDrawer,
   CloseBtn,
 } from "./NavbarElements";
-import './Navbar.css';
+import "./Navbar.css";
 import { FaBars } from "react-icons/fa"; // Import the Bars icon from react-icons/fa
 import styled from "styled-components"; // Import styled-components for styling
 
@@ -35,18 +35,18 @@ const Navbar = () => {
 
   const handleShowNavbar = () => {
     setShowNavbar(!showNavbar);
-  }
+  };
 
   const handleLogout = (e) => {
     localStorage.clear();
-    Navigate("/");
+    navigate("/Progressify/");
   };
 
   const handleLogin = (e) => {};
 
   const handleSignin = (e) => {};
-  
-    // const toggleDrawer = () => {
+
+  // const toggleDrawer = () => {
   //   setIsOpen(!isOpen);
   // };
 

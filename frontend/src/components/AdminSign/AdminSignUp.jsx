@@ -27,7 +27,7 @@ function AdminSignUp(props) {
     const json = await response.json();
     if (json.success) {
       localStorage.setItem("token", json.token);
-      navigate("/admindashboard");
+      navigate("/Progressify/admindashboard");
     } else {
       console.log(e);
     }

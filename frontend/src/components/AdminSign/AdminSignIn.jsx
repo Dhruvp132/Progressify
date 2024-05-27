@@ -28,7 +28,7 @@ function AdminSignIn(props) {
     console.log(json);
     if ((json.status && json.token !== null) || json.token !== undefined) {
       localStorage.setItem("token", json.token);
-      navigate("/admindashboard");
+      navigate("/Progressify/admindashboard");
     } else {
       alert("Please enter correct Details");
       console.log("Error 400");

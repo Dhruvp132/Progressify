@@ -1,4 +1,5 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+/* eslint-disable no-unused-vars */
+import { useContext, useEffect, useRef, useState } from "react";
 import taskContext from "../context/tasks/taskContext";
 import TaskItem from "../components/TaskItem";
 import { useNavigate } from "react-router-dom";
@@ -25,7 +26,7 @@ function Tasks() {
     if (localStorage.getItem("token")) {
       getTasks();
     } else {
-      navigate("/");
+      navigate("/Progressify");
     }
     getTasks();
     // eslint-disable-next-line
@@ -47,10 +48,19 @@ function Tasks() {
   //Edit Task =>
   const handleClickEdit = (e) => {
     editTask(task.id, task.etitle, task.edescription, task.ecompleted); // Edit the task
-  const updatedTasks = tasks.map((t) => (t._id === task.id ? { ...t, title: task.etitle, description: task.edescription, completed: task.ecompleted } : t)); // Update the task in the local state
-  setTask(updatedTasks); // Update the local state with the new tasks
-  refClose.current.click();
-  alert("Updated Successfully", "success"); // coz we want alert when we click on updatetask button
+    const updatedTasks = tasks.map((t) =>
+      t._id === task.id
+        ? {
+            ...t,
+            title: task.etitle,
+            description: task.edescription,
+            completed: task.ecompleted,
+          }
+        : t
+    ); // Update the task in the local state
+    setTask(updatedTasks); // Update the local state with the new tasks
+    refClose.current.click();
+    alert("Updated Successfully", "success"); // coz we want alert when we click on updatetask button
   };
 
   const onChangeEdit = (e) => {

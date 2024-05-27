@@ -1,22 +1,24 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React, { useContext } from "react";
 import ProgressBar from "@ramonak/react-progress-bar";
 import "./styles.scss";
 import { useNavigate } from "react-router-dom";
 
 const UserItem = (props) => {
-    const {user , setUser} = props
-    const navigate = useNavigate();
-    
-    const handleExplore = () => {
-        navigate("/admin/getUser", { state: { id: user.id } });
-    };
+  const { user } = props;
+  const navigate = useNavigate();
 
-    return (
+  const handleExplore = () => {
+    navigate("/admin/getUser", { state: { id: user.id } });
+  };
+
+  return (
     <div className="cardClass">
-      <div class="card my-3">
-        <div style={{ height: "200px" }} class="card-body">
-          <h5 class="card-title">{user.name}</h5>
-          <p class="card-text">{user.email}</p>
+      <div className="card my-3">
+        <div style={{ height: "200px" }} className="card-body">
+          <h5 className="card-title">{user.name}</h5>
+          <p className="card-text">{user.email}</p>
           <ProgressBar
             completed={
               parseInt(user.taskCompleted) === 0

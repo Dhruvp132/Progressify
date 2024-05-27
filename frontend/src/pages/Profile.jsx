@@ -27,7 +27,7 @@ function Profile() {
       getUser();
       getTasks();
     } else {
-      navigate("/");
+      navigate("/Progressify/");
     }
     getUser();
     getTasks();
@@ -76,7 +76,7 @@ function Profile() {
         <button
           style={{ marginTop: "15px" }}
           onClick={() => {
-            navigate("/allTasks");
+            navigate("/Progressify/allTasks");
           }}
         >
           Click to see all your tasks

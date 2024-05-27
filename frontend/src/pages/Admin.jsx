@@ -19,7 +19,7 @@ function Admin() {
   useEffect(() => {
     if (localStorage.getItem("token")) {
     } else {
-      navigate("/");
+      navigate("/Progressify/");
     }
     // eslint-disable-next-line
   }, [task]);

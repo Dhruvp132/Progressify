@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+/* eslint-disable no-unused-vars */
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function SignInForm(props) {
@@ -27,7 +28,7 @@ function SignInForm(props) {
     //can also do this authentication usin json.status
     if ((json.status && json.token !== null) || json.token !== undefined) {
       localStorage.setItem("token", json.token);
-      navigate("/tasks");
+      navigate("/Progressify/tasks");
     } else {
       console.log("Error 400");
     }

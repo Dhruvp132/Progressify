@@ -10,7 +10,7 @@ import {
   CloseBtn,
 } from "./NavbarElements";
 import { useNavigate } from "react-router";
-import './Navbar.css'
+import "./Navbar.css";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const ButtonText = "LogOut";
@@ -18,7 +18,7 @@ const Navbar = () => {
 
   const handleLogout = (e) => {
     localStorage.clear();
-    Navigate("/");
+    navigate("/Progressify/");
   };
 
   const handleLogin = (e) => {};
@@ -34,7 +34,7 @@ const Navbar = () => {
       <Nav>
         <NavLink to="/"></NavLink>
         {/* <Bars onClick={toggleDrawer} /> */}
-        <Bars  />
+        <Bars />
         <NavMenu>
           <NavLink to="/adminDashboard" activeStyle>
             Dashboard

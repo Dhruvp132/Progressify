@@ -27,7 +27,7 @@ function SignUpForm(props) {
     console.log(json);
     if (json.success) {
       localStorage.setItem("token", json.token);
-      navigate("/");
+      navigate("/Progressify/");
     } else {
       console.log(e);
     }
