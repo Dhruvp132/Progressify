@@ -36,26 +36,26 @@ const Navbar = () => {
         {/* <Bars onClick={toggleDrawer} /> */}
         <Bars />
         <NavMenu>
-          <NavLink to="/adminDashboard" activeStyle>
+          <NavLink to="/Progressify/adminDashboard" activeStyle>
             Dashboard
           </NavLink>
-          <NavLink to="/admin/getuser" activeStyle>
+          <NavLink to="/Progressify/admin/getuser" activeStyle>
             Users
           </NavLink>
-          <NavLink to="/admin/about" activeStyle>
+          <NavLink to="/Progressify/admin/about" activeStyle>
             About
           </NavLink>
-          <NavLink to="/admin/assignTask" activeStyle>
+          <NavLink to="/Progressify/admin/assignTask" activeStyle>
             AsignTask
           </NavLink>
         </NavMenu>
         <NavBtn>
           {!localStorage.getItem("token") ? (
             <div style={{ display: "flex" }}>
-              <NavBtnLink onClick={handleLogin} to="/">
+              <NavBtnLink onClick={handleLogin} to="/Progressify">
                 LogIn
               </NavBtnLink>
-              <NavBtnLink onClick={handleSignin} to="/">
+              <NavBtnLink onClick={handleSignin} to="/Progressify">
                 SignUp
               </NavBtnLink>
             </div>

@@ -59,19 +59,19 @@ const Navbar = () => {
           <Bars /> {/* Display the Bars icon */}
         </div>
         <NavMenu>
-          <NavLink to="/tasks" activeStyle>
+          <NavLink to="/Progressify/tasks" activeStyle>
             Home
           </NavLink>
-          <NavLink to="/About" activeStyle>
+          <NavLink to="/Progressify/About" activeStyle>
             About
           </NavLink>
-          <NavLink to="/Admin" activeStyle>
+          <NavLink to="/Progressify/Admin" activeStyle>
             Admin
           </NavLink>
-          <NavLink to="/allTasks" activeStyle>
+          <NavLink to="/Progressify/allTasks" activeStyle>
             Tasks
           </NavLink>
-          <NavLink to="/user" activeStyle>
+          <NavLink to="/Progressify/user" activeStyle>
             Profile
           </NavLink>
         </NavMenu>
