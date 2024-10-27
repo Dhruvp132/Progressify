@@ -1,4 +1,4 @@
-Progressify
+Progressify 📈
 ===========
 
 Progressify is a task management system designed to streamline task allocation and enhance performance through a robust architecture. It includes an intuitive admin dashboard and an optimized backend to enable efficient user task management and scalability.
